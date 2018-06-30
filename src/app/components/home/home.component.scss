@@ -1,0 +1,117 @@
+$initialProjectScale: 1;
+$breakpoints: (
+  tablet: 768px,
+  midLargeTablet: 992px
+);
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  grid-auto-flow: dense;
+  grid-gap: 0;
+  max-width: 100%;
+
+  @media(max-width: map-get($breakpoints, tablet)) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(max-width: 425px) {
+    display: block;
+  }
+}
+
+%bg-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.project-overview {
+  padding: 0;
+  cursor: pointer;
+  transition: all 120ms ease-in-out;
+  transform: scale($initialProjectScale);
+  margin: 0;
+  width: 100%;
+
+  &.important {
+    grid-column: span 2;
+    grid-row: span 2;
+    
+    .cover-image {
+      height: 320px;
+      @extend %bg-image;
+      @media(min-width: 769px) {
+        height: 464px;
+      }
+    }
+
+    @media(max-width: map-get($breakpoints, tablet)) {
+      grid-row: auto;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 12px 10px -6px #2e282a;
+    transform: scale(1.02); /* scale($initialProjectScale + 0.1) */
+  }
+
+  .cover-image {
+
+    @extend %bg-image;
+
+    @media(min-width: map-get($breakpoints, midLargeTablet)) {
+      height: 190px;
+    }
+
+    @media(min-width: 769px) {
+      height: 280px;
+    }
+
+    @media(max-width: map-get($breakpoints, tablet)) {
+      height: 320px;
+    }
+  }
+}
+
+.coming-soon {
+  display: grid;
+  grid-column: span 2;
+  grid-row: span 2;
+  justify-content: center;
+  align-items: center;
+  transition: none;
+  background-color: #f14b59;
+  
+  :hover {
+    box-shadow: none;
+    transform: none !important;
+  }
+}
+
+.short-description {
+  padding: 1.2rem 0 1.2rem 2.4rem;
+
+  @media(max-width: map-get($breakpoints, midLargeTablet)) {
+    padding: 0.5rem 0 0.5rem 1rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    margin: 0;
+    @media(max-width: map-get($breakpoints, midLargeTablet)) {
+      font-size: 0.6rem;
+    }
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    font-variant: all-petite-caps;
+    line-height: 14px;
+
+    @media(max-width: map-get($breakpoints, midLargeTablet)) {
+      font-size: 1rem;
+    }
+  }
+}

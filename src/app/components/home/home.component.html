@@ -1,3 +1,20 @@
-<p>
-  home works!
-</p>
+<div class="container">
+  <div class="grid">
+    <div 
+      class="project-overview" 
+      *ngFor="let proj of projects$ | async"
+      [ngClass]="{ important: proj.important }" 
+      [ngStyle]="{ backgroundColor: proj.overviewColors.bg }"
+      (click)="goTo(proj.id)" >
+      <div class="cover-image" [ngStyle]="{ backgroundImage: 'url(\'' + (proj.imageUrl | async) + '\')'  }" ></div> 
+
+      <div class="short-description">
+        <h2 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.platform }">{{ proj.platform }} Project</h2>
+        <h5 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.text }">{{ proj.name }}</h5>
+      </div>
+    </div>
+    <div class="coming-soon" style="cursor: auto;">
+      <h2 class="font-weight-bold">More coming soon</h2>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
@@ -20,7 +21,8 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
     BrowserModule,
     AppRoutingModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebaseCredentials, 'portfolio')
+    AngularFireModule.initializeApp(environment.firebaseCredentials, 'portfolio'),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
