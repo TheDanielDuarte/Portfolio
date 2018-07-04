@@ -1,3 +1,5 @@
+@import '../../colors';
+
 $initialProjectScale: 1;
 $breakpoints: (
   tablet: 768px,
@@ -82,7 +84,7 @@ $breakpoints: (
   justify-content: center;
   align-items: center;
   transition: none;
-  background-color: #f14b59;
+  background-color: $accent;
   
   :hover {
     box-shadow: none;

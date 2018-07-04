@@ -1,0 +1,18 @@
+<section class="container">
+  <header class="page-title">
+    <h4>Contact</h4>
+  </header>
+  <div class="row">
+    <div class="col-lg-4 col-sm-6" *ngFor="let socialBlock of socialBlocks$ | async">
+      <div class="social-block">
+        <img [src]="socialBlock.imageURL | async" [alt]="socialBlock.id" class="img-fluid rounded">
+        <p *ngIf="!socialBlock.isURL; else notURL" class="link text-center">{{ socialBlock.value }}</p>
+        <ng-template #notURL>
+          <p class="text-center">
+            <a [href]="socialBlock.value" class="link" style="text-transform: none;">{{ socialBlock.alias }}</a>
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { Project } from '../../models/project';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private projects: ProjectsService,
     private storage: AngularFireStorage,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) { }
 
   ngOnInit() {
@@ -43,6 +45,8 @@ export class HomeComponent implements OnInit {
         return { ...proj, imageUrl: ref.getDownloadURL() };
       }))
     );
+
+    this.title.setTitle('Work');
   }
 
   public goTo(id: string) {

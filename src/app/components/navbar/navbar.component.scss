@@ -1,5 +1,7 @@
+@import '../../colors';
+
 :host {
-  background-color: #4c2da2;
+  background-color: $navbar-background;
   z-index: 200;
   display: block;
   margin-bottom: 1.3em;
@@ -34,17 +36,6 @@
 }
 
 .link {
-  color: #F5F4F9;
   text-transform: uppercase;
-  padding: 1rem 0.8rem;
-  margin: 1rem;
-  font-size: 1rem;
   font-variant: all-petite-caps;
-  font-weight: 700;
-  display: inherit;
-  transition: color 0.3s;
-  &:hover {
-    color: #ffc701;
-    text-decoration: none;
-  }
 }
