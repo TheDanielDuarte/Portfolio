@@ -5,10 +5,12 @@ export class Project {
   constructor(
     public id: string,
     public name: string,
-    public important: boolean,
-    public imageUrl: string | Observable<string>,
+    public isImportant: boolean,
+    public image: string,
     public shortDescription: string,
     public platform: Platform,
-    public overviewColors: { bg: string, text: string, platform: string }
+    public overviewColors: { bg: string, text: string, platform: string },
+    public content: string,
+    public slug: string
   ) {}
 }

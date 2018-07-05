@@ -8,9 +8,6 @@
 # dependencies
 /node_modules
 
-#environments
-/src/environments
-
 # IDEs and editors
 /.idea
 .project
@@ -43,3 +40,6 @@ Thumbs.db
 
 # Design
 web_site_design_studio.jpg
+
+src/environments/environment.ts
+src/environments/environment.prod.ts

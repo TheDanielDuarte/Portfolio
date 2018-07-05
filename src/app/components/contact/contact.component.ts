@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ContactService } from '../../services/contact.service';
 import { Observable } from 'rxjs';
 import { SocialBlock } from '../../models/social-block';
+import { ContentfulService } from '../../services/contentful.service';
 
 @Component({
   selector: 'app-contact',
@@ -14,11 +14,11 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private title: Title,
-    private contact: ContactService
+    private contenful: ContentfulService
   ) { }
 
   ngOnInit() {
-    this.socialBlocks$ = this.contact.allMedia();
+    this.socialBlocks$ = this.contenful.media();
     this.title.setTitle('Contact');
   }
 

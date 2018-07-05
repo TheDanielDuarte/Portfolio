@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectsService } from '../../services/projects.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { AngularFireStorage } from 'angularfire2/storage';
 import { Project } from '../../models/project';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { ContentfulService } from '../../services/contentful.service';
 
 @Component({
   selector: 'app-home',
@@ -16,15 +15,14 @@ export class HomeComponent implements OnInit {
   public projects$: Observable<&Project[]>;
 
   constructor(
-    private projects: ProjectsService,
-    private storage: AngularFireStorage,
+    private contentful: ContentfulService,
     private router: Router,
     private title: Title
   ) { }
 
   ngOnInit() {
     // @ts-ignore
-    this.projects$ = this.projects.all().pipe(
+    this.projects$ = this.contentful.projects().pipe(
       map(projects => projects.map(proj => {
         if (proj.overviewColors.platform) {
           return proj;
@@ -39,10 +37,6 @@ export class HomeComponent implements OnInit {
         }
 
         return proj;
-      })),
-      map(projects => projects.map((proj) => {
-        const ref = this.storage.storage.ref(`projects/${proj.id}.png`);
-        return { ...proj, imageUrl: ref.getDownloadURL() };
       }))
     );
 

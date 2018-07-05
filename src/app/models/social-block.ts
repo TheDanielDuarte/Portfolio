@@ -3,7 +3,7 @@ export class SocialBlock {
     public value: string,
     public isURL: boolean,
     public id: string,
-    public imageURL?: Promise<string>,
+    public image: { url: string, alt: string },
     public alias?: string
   ) {}
 }

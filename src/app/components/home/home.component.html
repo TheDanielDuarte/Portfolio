@@ -3,10 +3,10 @@
     <div 
       class="project-overview" 
       *ngFor="let proj of projects$ | async"
-      [ngClass]="{ important: proj.important }" 
+      [ngClass]="{ important: proj.isImportant }" 
       [ngStyle]="{ backgroundColor: proj.overviewColors.bg }"
-      (click)="goTo(proj.id)" >
-      <div class="cover-image" [ngStyle]="{ backgroundImage: 'url(\'' + (proj.imageUrl | async) + '\')'  }" ></div> 
+      (click)="goTo(proj.slug)" >
+      <div class="cover-image" [ngStyle]="{ backgroundImage: 'url(\'' + proj.image + '\')'  }" ></div> 
 
       <div class="short-description">
         <h2 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.platform }">{{ proj.platform }} Project</h2>
