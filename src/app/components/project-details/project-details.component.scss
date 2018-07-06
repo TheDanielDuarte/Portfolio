@@ -1,0 +1,58 @@
+@import '../../colors';
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+
+  @media(max-width: 425px) {
+    display: block;
+    margin-bottom: 4.375rem;
+  }
+}
+
+// Added space
+.fab, .fas {
+  margin-right: 5px;
+}
+
+// Override the default bootstrap color for anchors
+.btn {
+  color: $links;
+}
+
+
+// Buttons
+.github {
+  background: $rose;
+  
+  &:hover {
+    color: $rose;
+    background: #ffffff;
+  }
+}
+
+.live {
+  background: $yellow-alt;
+  color: $black;
+
+  &:hover {
+    color: $yellow-alt;
+    background: $black;
+  }
+}
+
+.google-play {
+  background: #ffffff;
+  color: #000000;
+
+  &:hover {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  img {
+    height: 20px;
+  }
+}

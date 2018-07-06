@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 type Platform = 'Fullstack' | 'Android (Java)' | 'Front End' | 'Javascript Back End' | 'Java Back End';
 
 export class Project {
@@ -11,6 +10,8 @@ export class Project {
     public platform: Platform,
     public overviewColors: { bg: string, text: string, platform: string },
     public content: string,
-    public slug: string
+    public slug: string,
+    public githubRepo: string,
+    public url: string
   ) {}
 }

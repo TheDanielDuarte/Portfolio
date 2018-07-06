@@ -5,11 +5,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
+import { environment } from '@env/environment';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { MarkdownPipe } from './pipes/markdown.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ContactComponent } from './components/contact/contact.component';
     HomeComponent,
     NavbarComponent,
     ProjectDetailsComponent,
-    ContactComponent
+    ContactComponent,
+    MarkdownPipe
   ],
   imports: [
     BrowserModule,

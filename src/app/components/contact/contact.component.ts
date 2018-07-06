@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
-import { SocialBlock } from '../../models/social-block';
-import { ContentfulService } from '../../services/contentful.service';
+import { SocialBlock } from '@models/social-block';
+import { ContentfulService } from '@services/contentful.service';
 
 @Component({
   selector: 'app-contact',
@@ -21,5 +21,4 @@ export class ContactComponent implements OnInit {
     this.socialBlocks$ = this.contenful.media();
     this.title.setTitle('Contact');
   }
-
 }

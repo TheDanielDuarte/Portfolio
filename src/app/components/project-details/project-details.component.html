@@ -1,3 +1,30 @@
-<p>
-  project-details works!
-</p>
+<div class="container">
+  <ng-container *ngIf="project$ | async as project">
+    <header>
+      <div class="page-title">
+        <h4>{{ project.name }}</h4>
+      </div>
+      <div class="project-buttons">
+        <div class="btn-group btn-group-sm" role="group" >
+          <a [href]="project.githubRepo" class="btn github">
+            <span class="fab fa-github-alt"></span>
+            Code
+          </a>
+
+          <a [href]="project.url" class="btn" [ngClass]="project.platform === 'Android (Java)' ? 'google-play' : 'live'">
+            <ng-container *ngIf="project.platform === 'Android (Java)'; else web">
+              <img class="img-fluid" src="../../../assets/google_play.png" alt="Google play logo" />
+              Get it on Google play
+            </ng-container>
+            
+            <ng-template #web>
+              <span class="fas fa-play"></span>
+              Live
+            </ng-template>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="content" [innerHTML]="project.content | markdown" ></div>
+  </ng-container>
+</div>

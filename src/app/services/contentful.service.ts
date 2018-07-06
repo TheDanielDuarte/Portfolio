@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import * as contentful from 'contentful';
-import { environment } from '../../environments/environment';
-import { Project } from '../models/project';
+import { environment } from '@env/environment';
+import { Project } from '@models/project';
 import { Observable, from } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { SocialBlock } from '../models/social-block';
+import { map, tap, take } from 'rxjs/operators';
+import { SocialBlock } from '@models/social-block';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class ContentfulService {
   }
 
   public projects(query: any = {}): Observable<Project[]> {
-    const promise = this.client.getEntries({ 'content_type': 'project', ...query });
+    const promise = this.client.getEntries<Project>({ 'content_type': 'project', ...query });
 
     return from(promise).pipe(
       map(entries => entries.items),
@@ -31,7 +31,7 @@ export class ContentfulService {
   }
 
   public media(query: any = {}): Observable<SocialBlock[]> {
-    const promise = this.client.getEntries({ 'content_type': 'socialBlock' });
+    const promise = this.client.getEntries<SocialBlock>({ 'content_type': 'socialBlock' });
 
     return from(promise).pipe(
       map(entries => entries.items),
@@ -42,8 +42,22 @@ export class ContentfulService {
         const { title: alt, file: { url } } = item.image.fields;
 
         return { ...item, image: { url, alt } };
-      })),
-      tap(console.log),
+      }))
+    );
+  }
+
+  public project(slug: string): Observable<Project> {
+    const promise = this.client.getEntries<Project>({
+      'content_type': 'project',
+      'fields.slug': slug
+    });
+
+    return from(promise).pipe(
+      map(entries => entries.items),
+      map(([entry]) => entry),
+      map(entry => ({ ...entry.fields, id: entry.sys.id } as &Project)),
+      // @ts-ignore
+      map(entry => ({ ...entry, image: entry.image.fields.file.url } as Project))
     );
   }
 }
