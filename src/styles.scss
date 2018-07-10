@@ -14,11 +14,13 @@
 @import '~bootstrap/scss/buttons';
 @import '~bootstrap/scss/button-group';
 @import 'app/colors';
+@import 'app/utils';
 
 body {
   background-color: $page-background;
   font-family: 'Poppins', sans-serif;
   color: white;
+  overflow-x: hidden;
 }
 
 ul {
@@ -58,4 +60,13 @@ a.link {
     text-transform: uppercase;
     font-size: 2.1rem;
   }
+}
+
+.typed-cursor{
+  opacity: 1;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink{
+  50% { opacity: 0.0; }
 }

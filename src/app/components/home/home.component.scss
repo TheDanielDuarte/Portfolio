@@ -1,4 +1,5 @@
 @import '../../colors';
+@import '../../utils';
 
 $initialProjectScale: 1;
 $breakpoints: (
@@ -116,4 +117,33 @@ $breakpoints: (
       font-size: 1rem;
     }
   }
+}
+
+
+
+
+
+.intro {
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: calcRems(50);
+  justify-content: flex-start;
+  align-items: center;
+
+  h3 {
+    font-size: calcRems(48);
+    font-weight: bold;
+    margin-bottom: calcRems(80);
+  }
+
+  h5 {
+    color: $accent;
+    display: inline-block;
+    border-bottom: 4px solid $accent;
+  }
+}
+
+.typedjs {
+  display: block;
 }
