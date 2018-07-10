@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
+import { SkillsComponent } from './components/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MarkdownPipe } from './pipes/markdown.pipe';
     NavbarComponent,
     ProjectDetailsComponent,
     ContactComponent,
-    MarkdownPipe
+    MarkdownPipe,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,

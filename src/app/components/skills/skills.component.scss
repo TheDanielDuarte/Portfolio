@@ -1,0 +1,41 @@
+@import '../../utils';
+@import '../../colors';
+
+.skill-set {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-clip: border-box;
+  text-align: center;
+  margin-bottom: calcRems(60);
+  transition: all ease-in 150ms; 
+  
+  &-title {
+    margin-bottom: 0.75rem;
+    font-size: calcRems(20);
+    margin-top: calcRems(17);
+    font-family: 'Open Sans', serif;
+    color: $links;
+  }
+
+  &-content {
+    flex: 1 1 auto;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+    font-size: calcRems(18);
+    margin-top: calcRems(20);
+    font-weight: 300;
+    color: darken($links, 15);
+  }
+
+  &-img {
+    display: block;
+    margin: auto;
+    padding: calcRems(15);
+    max-height: 100px;
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}

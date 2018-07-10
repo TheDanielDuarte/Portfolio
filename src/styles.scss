@@ -62,11 +62,11 @@ a.link {
   }
 }
 
-.typed-cursor{
+.typed-cursor {
   opacity: 1;
   animation: blink 0.7s infinite;
 }
 
-@keyframes blink{
+@keyframes blink {
   50% { opacity: 0.0; }
 }
