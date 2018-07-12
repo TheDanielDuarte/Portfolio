@@ -1,22 +1,38 @@
 <nav>
   <div class="container">
+    <button class="hamburger hamburger--emphatic-r" type="button" #hamburgerButton (click)="onToggleMenu(hamburgerButton)" >
+      <span class="hamburger-box">
+        <span class="hamburger-inner" id="hamburger" ></span>
+      </span>
+    </button>
     <h5 class="brand">Daniel Duarte</h5>
     <ul class="nav-list">
       <li>
-        <a routerLink="/" class="link">Work</a>
+        <a class="link" routerLink="/projects" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Work</a>
       </li>
       <li>
-        <a routerLink="contact" class="link">Contact</a>
+        <a class="link" routerLink="contact" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact</a>
       </li>
       <li>
-        <a routerLink="skills" class="link">Skills</a>
+        <a class="link" routerLink="skills" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Skills</a>
       </li>
       <li>
-        <a href="https://github.com/TheDanielDuarte" class="link">Github</a>
-      </li>
-      <li>
-        <a href="https://www.linkedin.com/in/daniel-alejandro-duarte" class="link">LinkedIn</a>
+        <a class="link" href="https://github.com/TheDanielDuarte" target="_blank">Github</a>
       </li>
     </ul>
   </div>
+
+  <section class="mobile-menu" *ngIf="showResponsiveMenu">
+    <ul [@staggerLinks]>
+      <li>
+        <a class="link" routerLink="/projects" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Work</a>
+      </li>
+      <li>
+        <a class="link" routerLink="contact" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Contact</a>
+      </li>
+      <li>
+        <a class="link" routerLink="skills" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Skills</a>
+      </li>
+    </ul>
+  </section>
 </nav>

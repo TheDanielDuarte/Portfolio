@@ -1,16 +1,24 @@
 @import '../../colors';
+@import '../../utils';
+
 
 :host {
   background-color: $navbar-background;
   z-index: 200;
   display: block;
   margin-bottom: 1.3em;
+  height: calcRems(88);
 }
 
 .container {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+  height: calcRems(88);
+}
+
+nav {
+  display: fixed;
 }
 
 .nav-list {
@@ -33,9 +41,72 @@
   &:last-of-type::after {
     display: none; 
   }
+
+  @media(max-width: 768px) {
+    display: none;
+  }
+}
+
+.active {
+  color: $yellow;
+  text-decoration: none;
 }
 
 .link {
   text-transform: uppercase;
   font-variant: all-petite-caps;
+}
+
+.hamburger {
+  @media(min-width: 769px) {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 110;
+  text-align: center;
+  background-color: #5031a9;
+
+  @media(min-width: 769px) {
+    display: none;
+  }
+
+  ul {
+    margin-top: 3rem;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  a {
+    font-size: 3rem;
+    font-variant: all-petite-caps;
+    font-weight: 700;
+    opacity: 1;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+  }
+}
+
+@media(max-width: 768px) {
+  .hamburger {
+    padding: 1.1rem 0 0.9rem 0;
+    display: block;
+    background-color: transparent;
+    color: #ffffff;
+  
+    &-inner {
+      &, &::after, &::before {
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+@media(max-width: 375px) {
+  h5.brand {
+    font-size: 1.5rem;
+  }
 }

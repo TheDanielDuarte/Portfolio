@@ -16,7 +16,6 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit() {
     this.skillSet$ = this.contentful.skills().pipe(
-      tap(console.log.bind(console, 'PRIOR TO TRANSFORM:')),
       map(skills => skills.reduce((acc, curr) => {
         const index = acc.findIndex(value => value.name === curr.group);
         if (index === -1) {
@@ -30,8 +29,7 @@ export class SkillsComponent implements OnInit {
       map(skills => skills.map(skill => {
         const imageURL = this.contentful.getSkillImageByTitle(skill.name);
         return { ...skill, image: imageURL };
-      })),
-      tap(console.log.bind(console, 'AFTER TRANSFORM:'))
+      }))
     );
   }
 

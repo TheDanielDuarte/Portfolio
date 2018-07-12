@@ -2,8 +2,7 @@
   <div class="row">
     <div *ngFor="let sg of skillSet$ | async" class="col-md-4">
       <div class="skill-set">
-        <!-- <div class="skill-set-img" [ngStyle]="{ backgroundImage: 'url(' + ( sg.image | async ) + ')' }"></div> -->
-        <img [src]="sg.image | async" alt="" class="skill-set-img img-fluid">
+        <img [src]="sg.image | async" [alt]="sg.name" class="skill-set-img img-fluid">
         <h5 class="skill-set-title">{{ sg.name }}</h5>
         <p class="skill-set-content">{{ sg.content.join(', ') }}.</p>
       </div>

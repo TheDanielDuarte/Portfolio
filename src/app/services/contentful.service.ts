@@ -3,7 +3,7 @@ import * as contentful from 'contentful';
 import { environment } from '@env/environment';
 import { Project } from '@models/project';
 import { Observable, from } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 import { Skill, SkillType } from '@models/skill';
 import { SocialBlock } from '@models/social-block';
 
@@ -24,6 +24,7 @@ export class ContentfulService {
     const promise = this.client.getEntries<Project>({ 'content_type': 'project', ...query });
 
     return from(promise).pipe(
+      retry(2),
       map(entries => entries.items),
       map(items => items.map(item => ({ ...item.fields, id: item.sys.id } as &Project))),
       // @ts-ignore
@@ -35,6 +36,7 @@ export class ContentfulService {
     const promise = this.client.getEntries<SocialBlock>({ 'content_type': 'socialBlock', ...query });
 
     return from(promise).pipe(
+      retry(2),
       map(entries => entries.items),
       map(items => items.map(item => ({ ...item.fields, id: item.sys.id } as &SocialBlock))),
       // @ts-ignore
@@ -54,6 +56,7 @@ export class ContentfulService {
     });
 
     return from(promise).pipe(
+      retry(2),
       map(entries => entries.items),
       map(([entry]) => entry),
       map(entry => ({ ...entry.fields, id: entry.sys.id } as &Project)),
@@ -66,6 +69,7 @@ export class ContentfulService {
     const promise = this.client.getEntries<Skill>({ 'content_type': 'skill', ...query });
 
     return from(promise).pipe(
+      retry(2),
       map(entries => entries.items),
       map(items => items.map(item => ({ ...item.fields, id: item.sys.id } as Skill)) )
     );
@@ -98,8 +102,8 @@ export class ContentfulService {
     const promise = this.client.getAsset(id);
 
     return from(promise).pipe(
-      map(items => items.fields.file.url),
-      tap(console.log),
+      retry(2),
+      map(items => items.fields.file.url)
     );
   }
 }
