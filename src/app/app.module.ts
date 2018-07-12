@@ -12,6 +12,7 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
 import { ContactComponent } from './components/contact/contact.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
 import { SkillsComponent } from './components/skills/skills.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SkillsComponent } from './components/skills/skills.component';
     AppRoutingModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseCredentials, 'portfolio'),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

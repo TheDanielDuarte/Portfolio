@@ -8,10 +8,27 @@ import { SkillsComponent } from './components/skills/skills.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'projects', pathMatch: 'full' },
-  { path: 'projects', component: HomeComponent },
-  { path: 'projects/:slug', component: ProjectDetailsComponent, resolve: [PreloadProjectGuard] },
-  { path: 'contact', component: ContactComponent },
-  { path: 'skills', component: SkillsComponent }
+  {
+    path: 'projects',
+    component: HomeComponent,
+    data: { state: 'work' }
+  },
+  {
+    path: 'projects/:slug',
+    component: ProjectDetailsComponent,
+    resolve: [PreloadProjectGuard],
+    data: { state: 'project' }
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: { state: 'contact' }
+  },
+  {
+    path: 'skills',
+    component: SkillsComponent,
+    data: { state: 'skills' }
+  }
 ];
 
 @NgModule({
