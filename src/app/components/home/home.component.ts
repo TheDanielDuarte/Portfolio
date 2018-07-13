@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }))
     );
 
-    this.title.setTitle('Work');
+    this.title.setTitle('Work - Daniel Duarte');
   }
 
   ngAfterViewInit() {

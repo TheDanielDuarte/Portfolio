@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div *ngFor="let sg of skillSet$ | async" class="col-md-4">
+    <div *ngFor="let sg of skillSet$ | async" class="col-lg-4 col-sm-6">
       <div class="skill-set">
         <img [src]="sg.image | async" [alt]="sg.name" class="skill-set-img img-fluid">
         <h5 class="skill-set-title">{{ sg.name }}</h5>

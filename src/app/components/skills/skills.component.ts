@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { SkillGroup, Skill } from '@models/skill';
 import { ContentfulService } from '@services/contentful.service';
 import { map, tap } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-skills',
@@ -12,7 +13,7 @@ import { map, tap } from 'rxjs/operators';
 export class SkillsComponent implements OnInit {
   public skillSet$: Observable<SkillGroup[]>;
 
-  constructor(private contentful: ContentfulService) { }
+  constructor(private contentful: ContentfulService, private title: Title) { }
 
   ngOnInit() {
     this.skillSet$ = this.contentful.skills().pipe(
@@ -31,6 +32,8 @@ export class SkillsComponent implements OnInit {
         return { ...skill, image: imageURL };
       }))
     );
+
+    this.title.setTitle('Skills - Daniel Duarte');
   }
 
   public getNames(content: Skill[]) {

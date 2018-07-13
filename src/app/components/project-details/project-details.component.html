@@ -6,12 +6,15 @@
       </div>
       <div class="project-buttons">
         <div class="btn-group btn-group-sm" role="group" >
-          <a [href]="project.githubRepo" class="btn github">
+          <a [href]="project.githubRepo" class="btn github" target="_blank">
             <span class="fab fa-github-alt"></span>
             Code
           </a>
 
-          <a [href]="project.url" class="btn" [ngClass]="project.platform === 'Android (Java)' ? 'google-play' : 'live'">
+          <a [href]="project.url"
+            class="btn" 
+            [ngClass]="project.platform === 'Android (Java)' ? 'google-play' : 'live'" 
+            target="_blank">
             <ng-container *ngIf="project.platform === 'Android (Java)'; else web">
               <img class="img-fluid" src="../../../assets/google_play.png" alt="Google play logo" />
               Get it on Google play

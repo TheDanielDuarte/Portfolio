@@ -1,3 +1,4 @@
+// Converts $n pixels to rems
 @function calcRems($n) {
   @return ($n / 16) * 1rem;
 }

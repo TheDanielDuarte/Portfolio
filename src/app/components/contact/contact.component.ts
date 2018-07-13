@@ -19,6 +19,6 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.socialBlocks$ = this.contenful.media();
-    this.title.setTitle('Contact');
+    this.title.setTitle('Contact - Daniel Duarte');
   }
 }

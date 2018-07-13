@@ -22,7 +22,7 @@ import { trigger, transition, query, style, group, animate } from '@angular/anim
           ], { optional: true }),
         ])
       ]),
-      transition('* => skills, work => contact', [
+      transition('* => skills, work => contact, work => project, project => *', [
         group([
           query(':enter, :leave', style({ position: 'fixed', width: '100%' })
           , { optional: true }),
