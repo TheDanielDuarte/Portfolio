@@ -1,5 +1,5 @@
-import { Component, OnInit, Renderer2, HostListener } from '@angular/core';
-import { trigger, transition, query, style, stagger, animate, keyframes } from '@angular/animations';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { trigger, transition, query, style, stagger, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',

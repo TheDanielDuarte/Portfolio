@@ -1,31 +1,33 @@
-<div>
-  <section class="intro container">
-    <h3>Back-end Developer &amp; Front-end Developer</h3>
-    <div class="typedjs">
-      <h5 #typedElement></h5>
+<section class="intro container">
+  <h3>Back-end Developer &amp; Front-end Developer</h3>
+  <div class="typedjs">
+    <h5 #typedElement></h5>
+  </div>
+  <div class="work-pointer">
+    <i class="fas fa-angle-down"></i>
+  </div>
+</section>
+
+<div class="container works-section">
+  <div class="page-title">
+    <h4>Recent Work</h4>
+  </div>
+  <div class="grid">
+    <div 
+      class="project-overview" 
+      *ngFor="let proj of projects$ | async"
+      [ngClass]="{ important: proj.isImportant }" 
+      [ngStyle]="{ backgroundColor: proj.overviewColors.bg }"
+      (click)="goTo(proj.slug)" >
+      <div class="cover-image" [ngStyle]="{ backgroundImage: 'url(\'' + proj.image + '\')'  }" ></div> 
+
+      <div class="short-description">
+        <h2 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.platform }">{{ proj.platform }} Project</h2>
+        <h5 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.text }">{{ proj.name }}</h5>
+      </div>
     </div>
-    
-  </section>
-  
-  <div class="container">
-  
-    <div class="grid">
-      <div 
-        class="project-overview" 
-        *ngFor="let proj of projects$ | async"
-        [ngClass]="{ important: proj.isImportant }" 
-        [ngStyle]="{ backgroundColor: proj.overviewColors.bg }"
-        (click)="goTo(proj.slug)" >
-        <div class="cover-image" [ngStyle]="{ backgroundImage: 'url(\'' + proj.image + '\')'  }" ></div> 
-  
-        <div class="short-description">
-          <h2 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.platform }">{{ proj.platform }} Project</h2>
-          <h5 class="font-weight-bold" [ngStyle]="{ color: proj.overviewColors.text }">{{ proj.name }}</h5>
-        </div>
-      </div>
-      <div class="coming-soon" style="cursor: auto;">
-        <h2 class="font-weight-bold">More coming soon</h2>
-      </div>
+    <div class="coming-soon" style="cursor: auto;">
+      <h2 class="font-weight-bold">More coming soon</h2>
     </div>
   </div>
 </div>

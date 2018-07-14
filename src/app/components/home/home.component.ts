@@ -48,13 +48,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const typed = new Typed(this.typedElement.nativeElement, {
       strings: [
-        'Hey welcome to my portfolio!',
-        'I\'m Daniel Alejandro Duarte.',
-        'I\'m Venezuelan.',
+        'It\'s nice to meet you!',
+        'I can setup environments and deploy apps/websites.',
         'I live in Miami.',
-        'También hablo español.',
+        'Eager to try new tech/lang.',
         'I\'m very passionate for what I do.',
-        'I enjoy learning new things.',
       ],
       typeSpeed: 50,
       backSpeed: 50,
