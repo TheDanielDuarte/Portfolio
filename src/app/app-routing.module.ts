@@ -5,6 +5,8 @@ import { ProjectDetailsComponent } from './components/project-details/project-de
 import { ContactComponent } from './components/contact/contact.component';
 import { PreloadProjectGuard } from './guards/preload-project.guard';
 import { SkillsComponent } from './components/skills/skills.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProjectDoesExistGuard } from './guards/project-does-exist.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'projects', pathMatch: 'full' },
@@ -17,7 +19,8 @@ const routes: Routes = [
     path: 'projects/:slug',
     component: ProjectDetailsComponent,
     resolve: [PreloadProjectGuard],
-    data: { state: 'project' }
+    data: { state: 'project' },
+    canActivate: [ProjectDoesExistGuard]
   },
   {
     path: 'contact',
@@ -28,7 +31,8 @@ const routes: Routes = [
     path: 'skills',
     component: SkillsComponent,
     data: { state: 'skills' }
-  }
+  },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

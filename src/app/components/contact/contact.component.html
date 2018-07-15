@@ -3,8 +3,8 @@
     <div class="col-lg-4 col-sm-6" *ngFor="let socialBlock of socialBlocks$ | async">
       <div class="social-block">
         <img [src]="socialBlock.image.url" [alt]="socialBlock.image.alt" class="img-fluid rounded">
-        <p *ngIf="!socialBlock.isURL; else notURL" class="link text-center">{{ socialBlock.value }}</p>
-        <ng-template #notURL>
+        <p *ngIf="!socialBlock.isURL; else isNotURL" class="link text-center">{{ socialBlock.value }}</p>
+        <ng-template #isNotURL>
           <p class="text-center">
             <a [href]="socialBlock.value" class="link" style="text-transform: none;">{{ socialBlock.alias }}</a>
           </p>

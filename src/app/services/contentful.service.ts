@@ -3,7 +3,7 @@ import * as contentful from 'contentful';
 import { environment } from '@env/environment';
 import { Project } from '@models/project';
 import { Observable, from } from 'rxjs';
-import { map, retry } from 'rxjs/operators';
+import { map, retry, take } from 'rxjs/operators';
 import { Skill, SkillType } from '@models/skill';
 import { SocialBlock } from '@models/social-block';
 
@@ -49,19 +49,14 @@ export class ContentfulService {
     );
   }
 
-  public project(slug: string): Observable<Project> {
+  public project(slug: string) {
     const promise = this.client.getEntries<Project>({
       'content_type': 'project',
       'fields.slug': slug
     });
 
     return from(promise).pipe(
-      retry(2),
-      map(entries => entries.items),
-      map(([entry]) => entry),
-      map(entry => ({ ...entry.fields, id: entry.sys.id } as &Project)),
-      // @ts-ignore
-      map(entry => ({ ...entry, image: entry.image.fields.file.url } as Project))
+      retry(2)
     );
   }
 

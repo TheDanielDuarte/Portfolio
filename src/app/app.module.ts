@@ -13,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { MarkdownPipe } from './pipes/markdown.pipe';
 import { SkillsComponent } from './components/skills/skills.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContactComponent,
     MarkdownPipe,
     SkillsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
