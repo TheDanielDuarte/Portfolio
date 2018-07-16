@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "webpack:prerender": "webpack --config webpack.prerender.config.js",
+    "build:prerender": "node dist/Portfolio/prerender.js",
+    "serve:prerender": "http-server dist/Portfolio -o",
+    "build:all": "ng build --prod && ng run Portfolio:server && npm run webpack:prerender && npm run build:prerender"
   },
   "private": true,
   "dependencies": {
@@ -19,16 +23,22 @@
     "@angular/http": "^6.0.3",
     "@angular/platform-browser": "^6.0.6",
     "@angular/platform-browser-dynamic": "^6.0.3",
+    "@angular/platform-server": "^6.0.3",
     "@angular/router": "^6.0.3",
-    "angularfire2": "^5.0.0-rc.11",
+    "@nguniversal/express-engine": "^6.0.0",
+    "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "bootstrap": "^4.1.1",
     "contentful": "^6.1.1",
     "core-js": "^2.5.4",
     "firebase": "^5.1.0",
     "font-awesome": "^4.7.0",
+    "fs-extra": "^6.0.1",
     "hamburgers": "^0.9.3",
+    "html-minifier": "^3.5.19",
+    "http-server": "^0.11.1",
     "marked": "^0.4.0",
     "rxjs": "^6.0.0",
+    "ts-loader": "^4.4.2",
     "typed.js": "^2.0.8",
     "zone.js": "^0.8.26"
   },
@@ -41,6 +51,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "express": "^4.16.3",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
@@ -51,6 +62,8 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "typescript": "~2.7.2"
+    "typescript": "~2.7.2",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
   }
 }
