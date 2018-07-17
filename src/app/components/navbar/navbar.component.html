@@ -1,6 +1,13 @@
 <nav>
   <div class="container">
-    <button class="hamburger hamburger--emphatic-r" type="button" #hamburgerButton (click)="onToggleMenu(hamburgerButton)" >
+    <button 
+      class="hamburger hamburger--emphatic-r" 
+      type="button"
+      role="button"
+      aria-label="Toggle Menu"
+      aria-labelledby="hamburger"
+      #hamburgerButton
+      (click)="onToggleMenu(hamburgerButton)" >
       <span class="hamburger-box">
         <span class="hamburger-inner" id="hamburger" ></span>
       </span>
@@ -17,7 +24,7 @@
         <a class="link" routerLink="skills" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Skills</a>
       </li>
       <li>
-        <a class="link" href="https://github.com/TheDanielDuarte" target="_blank">Github</a>
+        <a class="link" href="https://github.com/TheDanielDuarte" target="_blank" rel="noopener">Github</a>
       </li>
     </ul>
   </div>

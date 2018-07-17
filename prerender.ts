@@ -9,7 +9,8 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 const paths = [
   '/projects',
   '/contact',
-  '/skills'
+  '/skills',
+  '/error'
 ];
 
 const index = readFileSync(resolve(`${DIST_FOLDER}/${APP_NAME}/index.html`), 'utf8');

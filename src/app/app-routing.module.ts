@@ -32,7 +32,8 @@ const routes: Routes = [
     component: SkillsComponent,
     data: { state: 'skills' }
   },
-  { path: '**', component: NotFoundComponent }
+  { path: 'error', component: NotFoundComponent },
+  { path: '**', redirectTo: 'error', pathMatch: 'full' }
 ];
 
 @NgModule({
